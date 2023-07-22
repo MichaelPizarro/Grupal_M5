@@ -15,6 +15,11 @@
 
 <%@include file="MenuNav.jsp" %>
 
+<%
+    session = request.getSession();
+    if(session.getAttribute("usuario")!=null && session.getAttribute("pass")!=null){
+        %>
+
 <div class="text-center my-5">
     <h2>
         Lista de Capacitaciones
@@ -61,6 +66,12 @@
         </tbody>
     </table>
 </div>
+<%
+    }
+    else{
+        response.sendRedirect("Login.jsp");
+    }
+%>
 
 <div class="container my-5">
     <%@include file="Footer.jsp" %>
