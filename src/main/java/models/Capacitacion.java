@@ -2,7 +2,6 @@ package models;
 
 public class Capacitacion {
 
-    private static int ultimoIdentificador = 0;
     public int identificador;
     public String rutCliente;
     public String dia;
@@ -14,7 +13,6 @@ public class Capacitacion {
     public Capacitacion(String rutCliente, String dia, String hora, String lugar, String duracion,
                         int cantAsistentes) {
         super();
-        this.identificador = ++ultimoIdentificador;
         this.rutCliente = rutCliente;
         this.dia = dia;
         this.hora = hora;
