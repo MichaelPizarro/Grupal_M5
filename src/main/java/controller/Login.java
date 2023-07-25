@@ -1,13 +1,16 @@
 package controller;
 
+import dao.UsuarioDAOImpl;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import models.Usuario;
 
 import java.io.IOException;
+import java.util.List;
 
 /**
  * Servlet implementation class Inicio
@@ -15,6 +18,8 @@ import java.io.IOException;
 @WebServlet(name = "Login", value = "/Login")
 public class Login extends HttpServlet {
     private static final long serialVersionUID = 1L;
+
+    UsuarioDAOImpl usuarioDAO = new UsuarioDAOImpl();
 
     private HttpSession session;
 
@@ -30,8 +35,7 @@ public class Login extends HttpServlet {
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // TODO Auto-generated method stub
-
+        request.getRequestDispatcher("Login.jsp").forward(request, response);
 
     }
 
@@ -40,19 +44,33 @@ public class Login extends HttpServlet {
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // TODO Auto-generated method stub
+
         session = request.getSession();
-        String usuario = request.getParameter("usuario");
+        String nombre = request.getParameter("nombre");
         String pass = request.getParameter("pass");
 
-        if(usuario.equals("admin") && pass.equals("1234")){
-            session.setAttribute("usuario", usuario);
-            session.setAttribute("pass",pass);
+
+        List<Usuario> listaUsuarios = usuarioDAO.listarUsuario();
+
+
+        Usuario usuarioAutenticado = null;
+        for (Usuario usuario : listaUsuarios) {
+            if (usuario.getNombre().equals(nombre) && usuario.getContrasenia().equals(pass)) {
+                usuarioAutenticado = usuario;
+                break;
+            }
+        }
+
+        if ((nombre.equals("admin") && pass.equals("1234")) || (usuarioAutenticado != null && nombre.equals(usuarioAutenticado.getNombre()) && pass.equals(usuarioAutenticado.getContrasenia()))) {
+
+            session.setAttribute("nombre", nombre);
+            session.setAttribute("pass", pass);
 
             request.getRequestDispatcher("Contacto.jsp").forward(request, response);
         }else{
-
             request.getRequestDispatcher("Login.jsp").forward(request, response);
         }
+
     }
 
 }

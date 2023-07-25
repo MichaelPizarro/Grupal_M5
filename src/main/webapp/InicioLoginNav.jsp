@@ -10,7 +10,7 @@
                     <a class="nav-link active" aria-current="page" href="index.jsp">Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="Login.jsp">Login</a>
+                    <a class="nav-link" href="Login">Login</a>
                 </li>
             </ul>
         </div>

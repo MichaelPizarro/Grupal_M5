@@ -17,6 +17,12 @@
                     <a class="nav-link" href="ListarCapacitacion">Ver Capacitaciones</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="CrearUsuario">Crear Usuario</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="ListadoUsuarios">Ver Usuarios</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="Logout.jsp">Salir</a>
                 </li>
             </ul>

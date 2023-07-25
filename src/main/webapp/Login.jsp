@@ -26,11 +26,11 @@
                                                  <h3 class="title">Ingresar usuario</h3>
                                                  <div class="form-group">
                                                         <span class="input-icon"><i class="fa fa-envelope"></i></span>
-                                                        <input class="form-control" type="text" name="usuario" placeholder="Usuario">
+                                                        <input class="form-control" type="text" name="nombre" placeholder="Usuario" required>
                                                  </div>
                                                  <div class="form-group">
                                                         <span class="input-icon"><i class="fa fa-lock"></i></span>
-                                                        <input class="form-control" type="password" name="pass" placeholder="Contraseña">
+                                                        <input class="form-control" type="password" name="pass" placeholder="Contraseña" required>
                                                  </div>
                                                  <button class="btn btn-primary signin" type="submit">Enviar</button>
                                           </form>

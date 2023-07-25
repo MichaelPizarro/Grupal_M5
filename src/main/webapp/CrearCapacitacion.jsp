@@ -14,7 +14,7 @@
 
 <%
     session = request.getSession();
-    if(session.getAttribute("usuario")!=null && session.getAttribute("pass")!=null){
+    if(session.getAttribute("nombre")!=null && session.getAttribute("pass")!=null){
 %>
 
 <div class = "container my-3">
@@ -65,7 +65,7 @@
                 <input type="number" class="form-control" id="cantAsistentes" name="cantAsistentes" required>
             </div>
         </div>
-        <button type="submit" class="btn btn-primary" onclick="mostrarMensaje()">Enviar</button>
+        <button type="submit" class="btn btn-primary">Enviar</button>
     </form>
 </div>
 <%
@@ -78,11 +78,6 @@
     <%@include file="Footer.jsp" %>
 </div>
 
-<script>
-    function mostrarMensaje(){
-        alert("Datos enviados con éxito")
-    }
-</script>
 
 </body>
 </html>
