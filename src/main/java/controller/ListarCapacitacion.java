@@ -1,6 +1,6 @@
 package controller;
 
-import dao.CapacitacionDAOImpl;
+import implementacion.CapacitacionDAOImpl;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;

@@ -1,6 +1,6 @@
 package controller;
 
-import dao.CapacitacionDAOImpl;
+import implementacion.CapacitacionDAOImpl;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -9,7 +9,6 @@ import jakarta.servlet.http.HttpServletResponse;
 import models.Capacitacion;
 
 import java.io.IOException;
-import java.util.List;
 
 /**
  * Servlet implementation class CrearCapacitacion
