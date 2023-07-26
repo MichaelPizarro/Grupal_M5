@@ -7,6 +7,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import models.TipoUsuario;
 import models.Usuario;
 
 import java.io.IOException;
@@ -61,13 +62,17 @@ public class Login extends HttpServlet {
             }
         }
 
-        if ((nombre.equals("admin") && pass.equals("1234")) || (usuarioAutenticado != null && nombre.equals(usuarioAutenticado.getNombre()) && pass.equals(usuarioAutenticado.getContrasenia()))) {
+        if (usuarioAutenticado != null) {
+            session.setAttribute("nombre", usuarioAutenticado.getNombre());
+            session.setAttribute("pass", usuarioAutenticado.getContrasenia());
+            session.setAttribute("tipoUsuario", usuarioAutenticado.getTipo());
 
+
+        } else if (nombre.equals("admin") && pass.equals("1234")) {
             session.setAttribute("nombre", nombre);
             session.setAttribute("pass", pass);
-
-            request.getRequestDispatcher("Contacto.jsp").forward(request, response);
-        }else{
+            request.getRequestDispatcher("Contacto").forward(request, response);
+        } else {
             request.getRequestDispatcher("Login.jsp").forward(request, response);
         }
 
